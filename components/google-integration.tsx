@@ -65,11 +65,11 @@ export default function GoogleIntegrationPanel() {
         </div>
       ) : (
         <div className="space-y-2">
-          <div className="flex items-center gap-2 rounded-lg shadow-sm border p-3 bg-white">
+          <div className="flex items-center gap-2 rounded-lg shadow-sm border p-3 bg-card">
             <div className="bg-blue-100 text-blue-500 rounded-md p-1">
               <Check size={16} />
             </div>
-            <p className="text-sm text-zinc-800">Google OAuth set up</p>
+            <p className="text-sm text-card-foreground">Google OAuth set up</p>
           </div>
         </div>
       )}
