@@ -174,7 +174,7 @@ export default function FileUpload({
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <div className="bg-white rounded-full flex items-center justify-center py-1 px-3 border border-zinc-200 gap-1 font-medium text-sm cursor-pointer hover:bg-zinc-50 transition-all">
+        <div className="bg-card text-foreground rounded-full flex items-center justify-center py-1 px-3 border gap-1 font-medium text-sm cursor-pointer hover:bg-accent transition-all">
           <Plus size={16} />
           Upload
         </div>

@@ -39,7 +39,7 @@ export default function McpToolsList({ item }: Props) {
   return (
     <div className="flex flex-col">
       <div className="flex">
-        <div className="mr-4 rounded-[16px] px-4 py-2 md:mr-24 text-black bg-white font-light">
+        <div className="mr-4 rounded-[16px] px-4 py-2 md:mr-24 text-card-foreground bg-card font-light">
           <div className="text-sm mb-2 text-blue-500">
             Server <span className="font-semibold">{item.server_label}</span>{" "}
             tools list
