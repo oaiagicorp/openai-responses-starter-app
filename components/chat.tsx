@@ -83,7 +83,7 @@ const Chat: React.FC<ChatProps> = ({
         <div className="flex-1 p-4 px-10">
           <div className="flex items-center">
             <div className="flex w-full items-center pb-4 md:pb-1">
-              <div className="flex w-full flex-col gap-1.5 rounded-[20px] p-2.5 pl-1.5 transition-colors bg-white border border-stone-200 shadow-sm">
+              <div className="flex w-full flex-col gap-1.5 rounded-[20px] p-2.5 pl-1.5 transition-colors bg-card border shadow-sm">
                 <div className="flex items-end gap-1.5 md:gap-2 pl-4">
                   <div className="flex min-w-0 flex-1 flex-col">
                     <textarea
@@ -103,8 +103,8 @@ const Chat: React.FC<ChatProps> = ({
                   <button
                     disabled={!inputMessageText}
                     data-testid="send-button"
-                    className="flex size-8 items-end justify-center rounded-full bg-black text-white transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:outline-black disabled:bg-[#D7D7D7] disabled:text-[#f4f4f4] disabled:hover:opacity-100"
-                  onClick={() => {
+                    className="flex size-8 items-end justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:outline-primary disabled:bg-muted disabled:text-muted-foreground disabled:hover:opacity-100"
+                    onClick={() => {
                       onSendMessage(inputMessageText);
                       setinputMessageText("");
                     }}

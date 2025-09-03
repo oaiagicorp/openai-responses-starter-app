@@ -19,7 +19,7 @@ export default function McpApproval({ item, onRespond }: Props) {
   return (
     <div className="flex flex-col">
       <div className="flex">
-        <div className="mr-4 rounded-[16px] p-4 md:mr-24 text-black bg-gray-100 font-light">
+        <div className="mr-4 rounded-[16px] p-4 md:mr-24 text-card-foreground bg-card font-light">
           <div className="mb-2 text-sm">
             Request to execute tool{" "}
             <span className="font-medium">{item.name}</span> on server{" "}
@@ -33,7 +33,7 @@ export default function McpApproval({ item, onRespond }: Props) {
               size="sm"
               disabled={disabled}
               onClick={() => handle(false)}
-              className="bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800"
+              className="bg-muted text-muted-foreground hover:bg-muted/80"
             >
               Decline
             </Button>
