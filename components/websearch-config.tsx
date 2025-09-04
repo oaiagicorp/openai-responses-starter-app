@@ -16,6 +16,8 @@ export default function WebSearchSettings() {
         region: "",
         city: "",
       },
+      include_domains: [],
+      exclude_domains: [],
     });
   };
 
@@ -30,6 +32,19 @@ export default function WebSearchSettings() {
         ...webSearchConfig.user_location,
         [field]: value,
       },
+    });
+  };
+
+  const handleDomainsChange = (
+    field: "include_domains" | "exclude_domains",
+    value: string
+  ) => {
+    setWebSearchConfig({
+      ...webSearchConfig,
+      [field]: value
+        .split(",")
+        .map((d) => d.trim())
+        .filter((d) => d),
     });
   };
 
@@ -80,6 +95,38 @@ export default function WebSearchSettings() {
             className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
             value={webSearchConfig.user_location?.city ?? ""}
             onChange={(e) => handleLocationChange("city", e.target.value)}
+          />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label htmlFor="include_domains" className="text-sm w-20">
+            Include
+          </label>
+          <Input
+            id="include_domains"
+            type="text"
+            placeholder="example.com, example.org"
+            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
+            value={webSearchConfig.include_domains?.join(", ") ?? ""}
+            onChange={(e) =>
+              handleDomainsChange("include_domains", e.target.value)
+            }
+          />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label htmlFor="exclude_domains" className="text-sm w-20">
+            Exclude
+          </label>
+          <Input
+            id="exclude_domains"
+            type="text"
+            placeholder="example.com, example.org"
+            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
+            value={webSearchConfig.exclude_domains?.join(", ") ?? ""}
+            onChange={(e) =>
+              handleDomainsChange("exclude_domains", e.target.value)
+            }
           />
         </div>
       </div>
