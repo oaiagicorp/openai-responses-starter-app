@@ -39,7 +39,7 @@ export default function Main() {
       {/* Overlay panel for ToolsPanel on small screens */}
       {isToolsPanelOpen && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black bg-opacity-30">
-          <div className="w-full bg-white h-full p-4">
+          <div className="w-full h-full p-4 bg-background">
             <button className="mb-4" onClick={() => setIsToolsPanelOpen(false)}>
               <X size={24} />
             </button>
