@@ -14,7 +14,7 @@ function ApiCallCell({ toolCall }: ToolCallProps) {
     <div className="flex flex-col w-[70%] relative mb-[-8px]">
       <div>
         <div className="flex flex-col text-sm rounded-[16px]">
-          <div className="font-semibold p-3 pl-0 text-gray-700 rounded-b-none flex gap-2">
+          <div className="font-semibold p-3 pl-0 text-foreground rounded-b-none flex gap-2">
             <div className="flex gap-2 items-center text-blue-500 ml-[-8px]">
               <Zap size={16} />
               <div className="text-sm font-medium">
@@ -25,11 +25,11 @@ function ApiCallCell({ toolCall }: ToolCallProps) {
             </div>
           </div>
 
-          <div className="bg-[#fafafa] rounded-xl py-2 ml-4 mt-2">
+          <div className="rounded-xl py-2 ml-4 mt-2 bg-muted">
             <div className="max-h-96 overflow-y-scroll text-xs border-b mx-6 p-2">
               <SyntaxHighlighter
                 customStyle={{
-                  backgroundColor: "#fafafa",
+                  backgroundColor: "transparent",
                   padding: "8px",
                   paddingLeft: "0px",
                   marginTop: 0,
@@ -44,8 +44,8 @@ function ApiCallCell({ toolCall }: ToolCallProps) {
             <div className="max-h-96 overflow-y-scroll mx-6 p-2 text-xs">
               {toolCall.output ? (
                 <SyntaxHighlighter
-                  customStyle={{
-                    backgroundColor: "#fafafa",
+                customStyle={{
+                    backgroundColor: "transparent",
                     padding: "8px",
                     paddingLeft: "0px",
                     marginTop: 0,
@@ -56,7 +56,7 @@ function ApiCallCell({ toolCall }: ToolCallProps) {
                   {JSON.stringify(JSON.parse(toolCall.output), null, 2)}
                 </SyntaxHighlighter>
               ) : (
-                <div className="text-zinc-500 flex items-center gap-2 py-2">
+                <div className="flex items-center gap-2 py-2 text-muted-foreground">
                   <Clock size={16} /> Waiting for result...
                 </div>
               )}
@@ -99,7 +99,7 @@ function McpCallCell({ toolCall }: ToolCallProps) {
     <div className="flex flex-col w-[70%] relative mb-[-8px]">
       <div>
         <div className="flex flex-col text-sm rounded-[16px]">
-          <div className="font-semibold p-3 pl-0 text-gray-700 rounded-b-none flex gap-2">
+          <div className="font-semibold p-3 pl-0 text-foreground rounded-b-none flex gap-2">
             <div className="flex gap-2 items-center text-blue-500 ml-[-8px]">
               <Zap size={16} />
               <div className="text-sm font-medium">
@@ -110,11 +110,11 @@ function McpCallCell({ toolCall }: ToolCallProps) {
             </div>
           </div>
 
-          <div className="bg-[#fafafa] rounded-xl py-2 ml-4 mt-2">
+          <div className="rounded-xl py-2 ml-4 mt-2 bg-muted">
             <div className="max-h-96 overflow-y-scroll text-xs border-b mx-6 p-2">
               <SyntaxHighlighter
                 customStyle={{
-                  backgroundColor: "#fafafa",
+                  backgroundColor: "transparent",
                   padding: "8px",
                   paddingLeft: "0px",
                   marginTop: 0,
@@ -129,8 +129,8 @@ function McpCallCell({ toolCall }: ToolCallProps) {
             <div className="max-h-96 overflow-y-scroll mx-6 p-2 text-xs">
               {toolCall.output ? (
                 <SyntaxHighlighter
-                  customStyle={{
-                    backgroundColor: "#fafafa",
+                customStyle={{
+                    backgroundColor: "transparent",
                     padding: "8px",
                     paddingLeft: "0px",
                     marginTop: 0,
@@ -148,7 +148,7 @@ function McpCallCell({ toolCall }: ToolCallProps) {
                   })()}
                 </SyntaxHighlighter>
               ) : (
-                <div className="text-zinc-500 flex items-center gap-2 py-2">
+                <div className="flex items-center gap-2 py-2 text-muted-foreground">
                   <Clock size={16} /> Waiting for result...
                 </div>
               )}
@@ -164,7 +164,7 @@ function CodeInterpreterCell({ toolCall }: ToolCallProps) {
   return (
     <div className="flex flex-col w-[70%] relative mb-[-8px]">
       <div className="flex flex-col text-sm rounded-[16px]">
-        <div className="font-semibold p-3 pl-0 text-gray-700 rounded-b-none flex gap-2">
+        <div className="font-semibold p-3 pl-0 text-foreground rounded-b-none flex gap-2">
           <div className="flex gap-2 items-center text-blue-500 ml-[-8px]">
             <Code2 size={16} />
             <div className="text-sm font-medium">
@@ -174,11 +174,11 @@ function CodeInterpreterCell({ toolCall }: ToolCallProps) {
             </div>
           </div>
         </div>
-        <div className="bg-[#fafafa] rounded-xl py-2 ml-4 mt-2">
+        <div className="rounded-xl py-2 ml-4 mt-2 bg-muted">
           <div className="mx-6 p-2 text-xs">
             <SyntaxHighlighter
               customStyle={{
-                backgroundColor: "#fafafa",
+                backgroundColor: "transparent",
                 padding: "8px",
                 paddingLeft: "0px",
                 marginTop: 0,
@@ -203,7 +203,7 @@ function CodeInterpreterCell({ toolCall }: ToolCallProps) {
                     : ""
                 }`}
                 download
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#ededed] text-xs text-zinc-500"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-xs text-muted-foreground"
               >
                 {f.filename || f.file_id}
                 <Download size={12} />
