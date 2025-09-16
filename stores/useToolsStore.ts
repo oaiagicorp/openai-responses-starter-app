@@ -21,6 +21,8 @@ export type WebSearchConfig = {
     city?: string;
     region?: string;
   };
+  include_domains?: string[];
+  exclude_domains?: string[];
 };
 
 export type McpConfig = {
@@ -76,6 +78,8 @@ const useToolsStore = create<StoreState>()(
           city: "",
           region: "",
         },
+        include_domains: [],
+        exclude_domains: [],
       },
       mcpConfig: {
         server_label: "",

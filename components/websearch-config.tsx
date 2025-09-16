@@ -8,8 +8,9 @@ import CountrySelector from "./country-selector";
 export default function WebSearchSettings() {
   const { webSearchConfig, setWebSearchConfig } = useToolsStore();
 
-  const handleClear = () => {
+  const handleLocationClear = () => {
     setWebSearchConfig({
+      ...webSearchConfig,
       user_location: {
         type: "approximate",
         country: "",
@@ -33,13 +34,34 @@ export default function WebSearchSettings() {
     });
   };
 
+  const handleDomainChange = (
+    field: "include_domains" | "exclude_domains",
+    value: string
+  ) => {
+    setWebSearchConfig({
+      ...webSearchConfig,
+      [field]: value
+        .split(",")
+        .map((d) => d.trim())
+        .filter((d) => d),
+    });
+  };
+
+  const handleDomainClear = () => {
+    setWebSearchConfig({
+      ...webSearchConfig,
+      include_domains: [],
+      exclude_domains: [],
+    });
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between">
         <div className="text-zinc-600 text-sm">User&apos;s location</div>
         <div
           className="text-zinc-400 text-sm px-1 transition-colors hover:text-zinc-600 cursor-pointer"
-          onClick={handleClear}
+          onClick={handleLocationClear}
         >
           Clear
         </div>
@@ -80,6 +102,47 @@ export default function WebSearchSettings() {
             className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
             value={webSearchConfig.user_location?.city ?? ""}
             onChange={(e) => handleLocationChange("city", e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="flex items-center justify-between mt-6">
+        <div className="text-zinc-600 text-sm">Domain filtering</div>
+        <div
+          className="text-zinc-400 text-sm px-1 transition-colors hover:text-zinc-600 cursor-pointer"
+          onClick={handleDomainClear}
+        >
+          Clear
+        </div>
+      </div>
+      <div className="mt-3 space-y-3 text-zinc-400">
+        <div className="flex items-center gap-2">
+          <label htmlFor="include_domains" className="text-sm w-20">
+            Include
+          </label>
+          <Input
+            id="include_domains"
+            type="text"
+            placeholder="example.com, example.org"
+            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
+            value={(webSearchConfig.include_domains ?? []).join(", ")}
+            onChange={(e) =>
+              handleDomainChange("include_domains", e.target.value)
+            }
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <label htmlFor="exclude_domains" className="text-sm w-20">
+            Exclude
+          </label>
+          <Input
+            id="exclude_domains"
+            type="text"
+            placeholder="example.com, example.org"
+            className="bg-white border text-sm flex-1 text-zinc-900 placeholder:text-zinc-400"
+            value={(webSearchConfig.exclude_domains ?? []).join(", ")}
+            onChange={(e) =>
+              handleDomainChange("exclude_domains", e.target.value)
+            }
           />
         </div>
       </div>

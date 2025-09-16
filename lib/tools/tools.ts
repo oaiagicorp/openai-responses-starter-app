@@ -34,6 +34,12 @@ export const getTools = async (toolsState: ToolsState) => {
     ) {
       webSearchTool.user_location = webSearchConfig.user_location;
     }
+    if (webSearchConfig.include_domains && webSearchConfig.include_domains.length > 0) {
+      webSearchTool.include_domains = webSearchConfig.include_domains;
+    }
+    if (webSearchConfig.exclude_domains && webSearchConfig.exclude_domains.length > 0) {
+      webSearchTool.exclude_domains = webSearchConfig.exclude_domains;
+    }
 
     tools.push(webSearchTool);
   }

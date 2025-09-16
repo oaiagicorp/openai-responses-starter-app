@@ -13,7 +13,7 @@ Features:
 - Streaming responses & tool calls
 - Function calling
 - Display annotations
-- Web search tool configuration
+ - Web search tool configuration, including domain filtering
 - Vector store creation & file upload for use with the file search tool
 - MCP server configuration
 - Google Calendar & Gmail integration via first-party connector
