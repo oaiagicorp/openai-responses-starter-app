@@ -15,7 +15,7 @@ export type Annotation = {
 
 const AnnotationPill = ({ annotation }: { annotation: Annotation }) => {
   const className =
-    "inline-block text-nowrap px-3 py-1 rounded-full text-xs max-w-48 shrink-0 text-ellipsis overflow-hidden bg-[#ededed] text-zinc-500";
+    "inline-block max-w-48 shrink-0 overflow-hidden text-ellipsis text-nowrap rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground transition-colors";
 
   switch (annotation.type) {
     case "file_citation":

@@ -174,7 +174,7 @@ export default function FileUpload({
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <div className="bg-white rounded-full flex items-center justify-center py-1 px-3 border border-zinc-200 gap-1 font-medium text-sm cursor-pointer hover:bg-zinc-50 transition-all">
+        <div className="flex cursor-pointer items-center justify-center gap-1 rounded-full border border-border bg-card py-1 px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
           <Plus size={16} />
           Upload
         </div>
@@ -186,10 +186,10 @@ export default function FileUpload({
           </DialogHeader>
           <div className="my-6">
             {!vectorStoreId || vectorStoreId === "" ? (
-              <div className="flex items-start gap-2 text-sm">
+              <div className="flex items-start gap-2 text-sm text-foreground">
                 <label className="font-medium w-72" htmlFor="storeName">
                   New vector store name
-                  <div className="text-xs text-zinc-400">
+                  <div className="text-xs text-muted-foreground">
                     A new store will be created when you upload a file.
                   </div>
                 </label>
@@ -198,7 +198,7 @@ export default function FileUpload({
                   type="text"
                   value={newStoreName}
                   onChange={(e) => setNewStoreName(e.target.value)}
-                  className="border rounded p-2"
+                  className="rounded p-2"
                 />
               </div>
             ) : (
@@ -207,7 +207,7 @@ export default function FileUpload({
                   <div className="text-sm font-medium w-24 text-nowrap">
                     Vector store
                   </div>
-                  <div className="text-zinc-400  text-xs font-mono flex-1 text-ellipsis truncate">
+                  <div className="text-xs font-mono text-muted-foreground flex-1 text-ellipsis truncate">
                     {vectorStoreId}
                   </div>
                   <TooltipProvider>
@@ -216,7 +216,7 @@ export default function FileUpload({
                         <CircleX
                           onClick={() => onUnlinkStore()}
                           size={16}
-                          className="cursor-pointer text-zinc-400 mb-0.5 shrink-0 mt-0.5 hover:text-zinc-700 transition-all"
+                          className="mb-0.5 mt-0.5 shrink-0 cursor-pointer text-muted-foreground transition-all hover:text-foreground"
                         />
                       </TooltipTrigger>
                       <TooltipContent>
@@ -228,17 +228,17 @@ export default function FileUpload({
               </div>
             )}
           </div>
-          <div className="flex justify-center items-center mb-4 h-[200px]">
+          <div className="mb-4 flex h-[200px] items-center justify-center">
             {file ? (
-              <div className="flex flex-col items-start">
-                <div className="text-zinc-400">Loaded file</div>
-                <div className="flex items-center mt-2">
-                  <div className="text-zinc-900 mr-2">{file.name}</div>
+              <div className="flex flex-col items-start text-foreground">
+                <div className="text-muted-foreground">Loaded file</div>
+                <div className="mt-2 flex items-center">
+                  <div className="mr-2">{file.name}</div>
 
                   <Trash2
                     onClick={removeFile}
                     size={16}
-                    className="cursor-pointer text-zinc-900"
+                    className="cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
                   />
                 </div>
               </div>
@@ -246,19 +246,19 @@ export default function FileUpload({
               <div className="flex flex-col items-center">
                 <div
                   {...getRootProps()}
-                  className="p-6 flex items-center justify-center relative focus-visible:outline-0"
+                  className="relative flex items-center justify-center p-6 focus-visible:outline-0"
                 >
                   <input {...getInputProps()} />
                   <div
                     className={`absolute rounded-full transition-all duration-300 ${
                       isDragActive
-                        ? "h-56 w-56 bg-zinc-100"
+                        ? "h-56 w-56 bg-accent"
                         : "h-0 w-0 bg-transparent"
                     }`}
                   ></div>
-                  <div className="flex flex-col items-center text-center z-10 cursor-pointer">
-                    <FilePlus2 className="mb-4 size-8 text-zinc-700" />
-                    <div className="text-zinc-700">Upload a file</div>
+                  <div className="z-10 flex cursor-pointer flex-col items-center text-center text-muted-foreground">
+                    <FilePlus2 className="mb-4 size-8" />
+                    <div>Upload a file</div>
                   </div>
                 </div>
               </div>
