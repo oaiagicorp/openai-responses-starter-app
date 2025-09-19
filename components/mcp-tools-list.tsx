@@ -14,7 +14,7 @@ export default function McpToolsList({ item }: Props) {
       <div className="flex items-start mt-1 gap-2">
         <div
           className={
-            `text-zinc-500 text-xs whitespace-pre-wrap transition-all duration-200 ` +
+            `text-muted-foreground text-xs whitespace-pre-wrap transition-all duration-200 ` +
             (expanded ? "line-clamp-none" : "line-clamp-1 overflow-hidden")
           }
           style={{ maxWidth: 400 }}
@@ -22,7 +22,7 @@ export default function McpToolsList({ item }: Props) {
           {description}
         </div>
         <div
-          className="flex items-center text-xs text-gray-500 focus:outline-none select-none cursor-pointer"
+          className="flex cursor-pointer select-none items-center text-xs text-muted-foreground focus:outline-none"
           onClick={() => setExpanded((prev) => !prev)}
         >
           <ChevronRight
@@ -39,16 +39,16 @@ export default function McpToolsList({ item }: Props) {
   return (
     <div className="flex flex-col">
       <div className="flex">
-        <div className="mr-4 rounded-[16px] px-4 py-2 md:mr-24 text-black bg-white font-light">
-          <div className="text-sm mb-2 text-blue-500">
+        <div className="mr-4 rounded-[16px] bg-card px-4 py-2 font-light text-card-foreground transition-colors md:mr-24">
+          <div className="mb-2 text-sm text-primary">
             Server <span className="font-semibold">{item.server_label}</span>{" "}
             tools list
           </div>
-          <div className="space-y-2 text-sm mt-3">
+          <div className="mt-3 space-y-2 text-sm">
             {item.tools.map((tool) => (
               <div key={tool.name}>
-                <div className="flex gap-2 items-center text-xs">
-                  <div className="bg-blue-100 text-blue-500 rounded-md p-1">
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="rounded-md bg-primary/10 p-1 text-primary">
                     <Code size={12} />
                   </div>
                   <div className="font-mono">{tool.name}</div>
